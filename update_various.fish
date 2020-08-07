@@ -21,24 +21,6 @@ function update_various --description 'Update various things'
     return
   end
 
-  if test (get_os_info) = "ubuntu"
-    __ubuntu
-  else if test (get_os_info) = "arch"
-    __arch
-  else
-    __mac
-  end
-
-  if set -lq _flag_all
-    if test (get_os_info) = "ubuntu"
-      __ubuntu_all
-    else if test (get_os_info) = "arch"
-      __arch_all
-    else
-      __mac_all
-    end
-  end
-
   # OS
   function __ubuntu
     echo "Upgrade APT repogitory list..."
@@ -104,6 +86,24 @@ function update_various --description 'Update various things'
 
   function __mac_all
     echo "Nothing now"
+  end
+
+  if test (get_os_info) = "ubuntu"
+    __ubuntu
+  else if test (get_os_info) = "arch"
+    __arch
+  else
+    __mac
+  end
+
+  if set -lq _flag_all
+    if test (get_os_info) = "ubuntu"
+      __ubuntu_all
+    else if test (get_os_info) = "arch"
+      __arch_all
+    else
+      __mac_all
+    end
   end
 
   sleep 5
