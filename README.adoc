@@ -1,0 +1,10 @@
+= update_various
+
+Update packages command
+
+== Install
+
+[source,shell]
+----
+fisher add github.com/mimikun/update_various
+----
