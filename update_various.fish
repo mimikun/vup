@@ -35,19 +35,18 @@ function update_various --description 'Update various things'
   end
 
   function __ubuntu_all
-    echo "Upgrade Rust stable toolchains..."
-    rustup update stable
-    echo "Upgrade Rust nightly toolchains..."
-    rustup update nightly
     update_docker_compose
     update_geckodriver
     update_peco
     echo "Upgrade rust tools..."
-    update_rust_tool
-    echo "Upgrade fisher..."
-    fisher self-update
-    echo "Upgrade deno..."
-    deno upgrade
+    cargo install exa; sleep 5;
+    cargo install bat; sleep 5;
+    cargo install du-dust; sleep 5;
+    cargo install fd-find; sleep 5;
+    cargo install hexyl; sleep 5;
+    cargo install procs; sleep 5;
+    cargo install tokei; sleep 5;
+    cargo install ripgrep; sleep 5;
   end
 
   function __arch
@@ -58,15 +57,9 @@ function update_various --description 'Update various things'
   end
 
   function __arch_all
-    echo "Upgrade Rust toolchains..."
-    rustup update
-    echo "Upgrade fisher..."
-    fisher self-update
     echo "Upgrade rust tools..."
     cargo install du-dust; sleep 5;
     cargo install procs; sleep 5;
-    echo "Upgrade deno..."
-    deno upgrade
   end
 
   function __mac
@@ -78,14 +71,11 @@ function update_various --description 'Update various things'
     brew cask upgrade
     echo "Running brew cleanup..."
     brew cleanup
-    echo "Running anyenv update..."
-    anyenv update
-    echo "Running rustup update..."
-    rustup update
   end
 
   function __mac_all
-    echo "Nothing now"
+    echo "Running anyenv update..."
+    anyenv update
   end
 
   if test (get_os_info) = "ubuntu"
@@ -97,6 +87,13 @@ function update_various --description 'Update various things'
   end
 
   if set -lq _flag_all
+    echo "Upgrade Rust toolchains..."
+    rustup update
+    echo "Upgrade fisher..."
+    fisher self-update
+    echo "Upgrade deno..."
+    deno upgrade
+
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
     else if test (get_os_info) = "arch"
