@@ -2,6 +2,10 @@
 
 Update packages command
 
+== Requirements
+
+* https://github.com/mimikun/get_os_info[get_os_info]
+
 == Install
 
 [source,shell]
