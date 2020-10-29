@@ -47,6 +47,7 @@ function update_various --description 'Update various things'
     cargo install procs; sleep 5;
     cargo install tokei; sleep 5;
     cargo install ripgrep; sleep 5;
+    cargo install tealdeer; sleep 5;
   end
 
   function __arch
