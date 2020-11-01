@@ -105,9 +105,9 @@ function update_various --description 'Update various things'
     else if test (get_os_info) = "arch"
       __arch_all
     else if test (get_os_info) = "endeavouros"
-      __arch
+      __arch_all
     else if test (get_os_info) = "macos"
-      __mac
+      __mac_all
     else
       echo "This distro NOT support."
     end
