@@ -109,6 +109,7 @@ function update_various --description 'Update various things'
       __mac
     else
       echo "This distro NOT support."
+    end
   end
 
   sleep 5
