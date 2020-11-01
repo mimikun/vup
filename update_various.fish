@@ -70,7 +70,7 @@ function update_various --description 'Update various things'
     echo "Running brew upgrade..."
     brew upgrade
     echo "Running brew cask upgrade..."
-    brew cask upgrade
+    brew upgrade --cask
     echo "Running brew cleanup..."
     brew cleanup
   end
