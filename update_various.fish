@@ -10,7 +10,7 @@ function update_various --description 'Update various things'
   set -l options 'a/all' 'h/help'
   argparse -n update_various $options -- $argv
   or return 1
-  
+
   if set -lq _flag_help
     __help_message
     return
@@ -83,8 +83,12 @@ function update_various --description 'Update various things'
     __ubuntu
   else if test (get_os_info) = "arch"
     __arch
-  else
+  else if test (get_os_info) = "endeavouros"
+    __arch
+  else if test (get_os_info) = "macos"
     __mac
+  else
+    echo "This distro NOT support."
   end
 
   if set -lq _flag_all
@@ -99,9 +103,12 @@ function update_various --description 'Update various things'
       __ubuntu_all
     else if test (get_os_info) = "arch"
       __arch_all
+    else if test (get_os_info) = "endeavouros"
+      __arch
+    else if test (get_os_info) = "macos"
+      __mac
     else
-      __mac_all
-    end
+      echo "This distro NOT support."
   end
 
   sleep 5
