@@ -96,7 +96,7 @@ function update_various --description 'Update various things'
     echo "Upgrade Rust toolchains..."
     rustup update
     echo "Upgrade fisher..."
-    fisher self-update
+    fisher update
     echo "Upgrade deno..."
     deno upgrade
 
