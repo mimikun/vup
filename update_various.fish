@@ -39,15 +39,7 @@ function update_various --description 'Update various things'
     update_geckodriver
     update_peco
     echo "Upgrade rust tools..."
-    cargo install exa; sleep 5;
-    cargo install bat; sleep 5;
-    cargo install du-dust; sleep 5;
-    cargo install fd-find; sleep 5;
-    cargo install hexyl; sleep 5;
-    cargo install procs; sleep 5;
-    cargo install tokei; sleep 5;
-    cargo install ripgrep; sleep 5;
-    cargo install tealdeer; sleep 5;
+    cargo install-update -a
     tldr --update
   end
 
@@ -60,8 +52,7 @@ function update_various --description 'Update various things'
 
   function __arch_all
     echo "Upgrade rust tools..."
-    cargo install du-dust; sleep 5;
-    cargo install procs; sleep 5;
+    cargo install-update -a
   end
 
   function __mac
