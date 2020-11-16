@@ -10,5 +10,5 @@ Update packages command
 
 [source,shell]
 ----
-fisher add github.com/mimikun/update_various
+fisher install mimikun/update_various
 ----
