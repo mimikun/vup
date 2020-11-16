@@ -38,6 +38,7 @@ function update_various --description 'Update various things'
     update_docker_compose
     update_geckodriver
     update_peco
+    update_bw
     echo "Upgrade rust tools..."
     cargo install-update -a
     tldr --update
