@@ -39,9 +39,11 @@ function update_various --description 'Update various things'
     update_geckodriver
     update_peco
     update_bw
-    echo "Upgrade rust tools..."
+    echo "Update rust tools..."
     cargo install-update -a
     tldr --update
+    echo "Update anyenv..."
+    anyenv update
   end
 
   function __arch
@@ -52,7 +54,7 @@ function update_various --description 'Update various things'
   end
 
   function __arch_all
-    echo "Upgrade rust tools..."
+    echo "Update rust tools..."
     cargo install-update -a
   end
 
