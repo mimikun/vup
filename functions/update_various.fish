@@ -93,6 +93,8 @@ function update_various --description 'Update various things'
     fisher update
     echo "Upgrade deno..."
     deno upgrade
+    echo "Upgrade asdf..."
+    asdf update
 
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
