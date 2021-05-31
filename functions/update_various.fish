@@ -42,8 +42,6 @@ function update_various --description 'Update various things'
     echo "Update rust tools..."
     cargo install-update -a
     tldr --update
-    echo "Update anyenv..."
-    anyenv update
   end
 
   function __arch
