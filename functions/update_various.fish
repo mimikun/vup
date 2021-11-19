@@ -93,6 +93,7 @@ function update_various --description 'Update various things'
     deno upgrade
     echo "Upgrade asdf..."
     asdf update
+    asdf plugin update --all
 
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
