@@ -10,5 +10,5 @@ Update packages command
 
 [source,shell]
 ----
-fisher install mimikun/update_various
+fisher install mimikun/get_os_info mimikun/update_various
 ----
