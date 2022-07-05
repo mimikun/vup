@@ -40,6 +40,7 @@ function update_various --description 'Update various things'
     update_peco
     echo "Update rust tools..."
     cargo install-update -a
+    cargo install-update --list | tail -n +4 | sed -e "s/ /\t/g" | cut -f 1 > $HOME/cargo_packages.txt
     tldr --update
   end
 
@@ -93,6 +94,12 @@ function update_various --description 'Update various things'
     echo "Upgrade asdf..."
     asdf update
     asdf plugin update --all
+    echo "Upgrade asdf tools..."
+    for i in (asdf plugin list)
+      asdf install $i latest
+    end
+    asdf install nodejs lts
+    asdf uninstall neovim nightly && asdf install neovim nightly
 
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
