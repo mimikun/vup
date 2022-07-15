@@ -99,7 +99,8 @@ function update_various --description 'Update various things'
       asdf install $i latest
     end
     asdf install nodejs lts
-    asdf uninstall neovim nightly && asdf install neovim nightly
+    update_asdf_neovim_nightly
+    asdf plugin list --urls > ~/asdf_plugin_list.txt
 
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
