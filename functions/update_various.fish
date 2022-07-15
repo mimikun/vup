@@ -37,7 +37,6 @@ function update_various --description 'Update various things'
   function __ubuntu_all
     update_docker_compose
     update_geckodriver
-    update_peco
     echo "Update rust tools..."
     cargo install-update -a
     cargo install-update --list | tail -n +4 | sed -e "s/ /\t/g" | cut -f 1 > $HOME/cargo_packages.txt
