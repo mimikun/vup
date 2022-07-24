@@ -90,6 +90,8 @@ function update_various --description 'Update various things'
     fisher update
     echo "Upgrade deno..."
     deno upgrade
+    echo "Upgrade bun..."
+    bun upgrade
     echo "Upgrade asdf..."
     asdf update
     asdf plugin update --all
