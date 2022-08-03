@@ -102,6 +102,7 @@ function update_various --description 'Update various things'
     asdf install nodejs lts
     update_asdf_neovim_nightly
     asdf plugin list --urls > ~/asdf_plugin_list.txt
+    update_completions
 
     if test (get_os_info) = "ubuntu"
       __ubuntu_all
