@@ -99,6 +99,7 @@ function update_various --description 'Update various things'
     for i in (asdf plugin list)
       asdf install $i latest
     end
+    asdf uninstall nodejs lts
     asdf install nodejs lts
     update_asdf_neovim_nightly
     asdf plugin list --urls > ~/asdf_plugin_list.txt
