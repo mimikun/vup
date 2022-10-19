@@ -39,7 +39,11 @@ function update_various --description 'Update various things'
     update_geckodriver
     echo "Update rust tools..."
     cargo install-update -a
-    cargo install-update --list | tail -n +4 | sed -e "s/ /\t/g" | cut -f 1 > $HOME/cargo_packages.txt
+    cargo install-update --list | \
+    tail -n +4 | \
+    sed -e "s/ /\t/g" | \
+    cut -f 1 | \
+    sed "/^\$/d" > $HOME/cargo_packages.txt
     tldr --update
   end
 
