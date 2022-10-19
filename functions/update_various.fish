@@ -75,13 +75,13 @@ function update_various --description 'Update various things'
     anyenv update
   end
 
-  if test (get_os_info) = "ubuntu"
+  if test (os_info -t) = "OS type: Ubuntu"
     __ubuntu
-  else if test (get_os_info) = "arch"
+  else if test (os_info -t) = "OS type: Arch Linux"
     __arch
-  else if test (get_os_info) = "endeavouros"
+  else if test (os_info -t) = "OS type: EndeavourOS"
     __arch
-  else if test (get_os_info) = "macos"
+  else if test (os_info -t) = "OS type: Mac OS"
     __mac
   else
     echo "This distro NOT support."
@@ -109,13 +109,13 @@ function update_various --description 'Update various things'
     asdf plugin list --urls > ~/asdf_plugin_list.txt
     update_completions
 
-    if test (get_os_info) = "ubuntu"
+    if test (os_info -t) = "OS type: Ubuntu"
       __ubuntu_all
-    else if test (get_os_info) = "arch"
+    else if test (os_info -t) = "OS type: Arch Linux"
       __arch_all
-    else if test (get_os_info) = "endeavouros"
+    else if test (os_info -t) = "OS type: EndeavourOS"
       __arch_all
-    else if test (get_os_info) = "macos"
+    else if test (os_info -t) = "OS type: Mac OS"
       __mac_all
     else
       echo "This distro NOT support."
