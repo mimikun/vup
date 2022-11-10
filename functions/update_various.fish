@@ -1,4 +1,4 @@
-function update_various --description 'Update various things'
+function update_various --description 'Tool to update various tools'
 
   function __help_message
     echo "Usage: update_various [-ah] "
