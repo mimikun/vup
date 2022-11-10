@@ -1,13 +1,11 @@
 function update_various --description 'Tool to update various tools'
 
   function __help_message
-    echo "Usage: update_various [-ah] "
-
-    echo "         -a --all      Update all"
+    echo "Usage: update_various [-h] "
     echo "         -h --help     Print this help"
   end
 
-  set -l options 'a/all' 'h/help'
+  set -l options 'h/help'
   argparse -n update_various $options -- $argv
   or return 1
 
@@ -34,29 +32,11 @@ function update_various --description 'Tool to update various tools'
     sudo snap refresh
   end
 
-  function __ubuntu_all
-    update_docker_compose
-    update_geckodriver
-    echo "Update rust tools..."
-    cargo install-update -a
-    cargo install-update --list | \
-    tail -n +4 | \
-    sed -e "s/ /\t/g" | \
-    cut -f 1 | \
-    sed "/^\$/d" > $HOME/cargo_packages.txt
-    tldr --update
-  end
-
   function __arch
     echo "Upgrade AUR packages..."
     yay
     echo "Cleaning  caches..."
     yes | yay -Sc
-  end
-
-  function __arch_all
-    echo "Update rust tools..."
-    cargo install-update -a
   end
 
   function __mac
@@ -68,11 +48,6 @@ function update_various --description 'Tool to update various tools'
     brew upgrade --cask
     echo "Running brew cleanup..."
     brew cleanup
-  end
-
-  function __mac_all
-    echo "Running anyenv update..."
-    anyenv update
   end
 
   if test (os_info -t) = "OS type: Ubuntu"
@@ -87,40 +62,37 @@ function update_various --description 'Tool to update various tools'
     echo "This distro NOT support."
   end
 
-  if set -lq _flag_all
-    echo "Upgrade Rust toolchains..."
-    rustup update
-    echo "Upgrade fisher..."
-    fisher update
-    echo "Upgrade deno..."
-    deno upgrade
-    echo "Upgrade bun..."
-    bun upgrade
-    echo "Upgrade asdf..."
-    asdf update
-    asdf plugin update --all
-    echo "Upgrade asdf tools..."
-    for i in (asdf plugin list)
-      asdf install $i latest
-    end
-    asdf uninstall nodejs lts
-    asdf install nodejs lts
-    update_asdf_neovim_nightly
-    asdf plugin list --urls > ~/asdf_plugin_list.txt
-    update_completions
-
-    if test (os_info -t) = "OS type: Ubuntu"
-      __ubuntu_all
-    else if test (os_info -t) = "OS type: Arch Linux"
-      __arch_all
-    else if test (os_info -t) = "OS type: EndeavourOS"
-      __arch_all
-    else if test (os_info -t) = "OS type: Mac OS"
-      __mac_all
-    else
-      echo "This distro NOT support."
-    end
+  echo "Upgrade Rust toolchains..."
+  rustup update
+  echo "Update rust tools..."
+  cargo install-update -a
+  echo "Create cargo_packages.txt..."
+  cargo install-update --list | \
+    tail -n +4 | \
+    sed -e "s/ /\t/g" | \
+    cut -f 1 | \
+    sed "/^\$/d" > $HOME/cargo_packages.txt
+  echo "Upgrade fisher..."
+  fisher update
+  echo "Upgrade deno..."
+  deno upgrade
+  echo "Upgrade bun..."
+  bun upgrade
+  echo "Upgrade asdf..."
+  asdf update
+  asdf plugin update --all
+  echo "Upgrade asdf tools..."
+  for i in (asdf plugin list)
+    asdf install $i latest
   end
+  asdf uninstall nodejs lts
+  asdf install nodejs lts
+  update_asdf_neovim_nightly
+  asdf plugin list --urls > ~/asdf_plugin_list.txt
+  update_docker_compose
+  update_geckodriver
+  tldr --update
+  update_completions
 
   sleep 5
 
