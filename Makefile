@@ -2,7 +2,7 @@ today = $(shell date "+%Y%m%d")
 product_name = update_various
 
 .PHONY : patch
-patch : diff-patch
+patch : clean diff-patch copy2win
 
 .PHONY : format-patch
 format-patch :
@@ -20,3 +20,6 @@ patch-branch :
 clean :
 	rm -f *.patch
 
+.PHONY : copy2win
+copy2win :
+	cp *.patch $$WIN_HOME/Downloads/
