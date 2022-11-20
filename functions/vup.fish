@@ -1,12 +1,12 @@
-function update_various --description 'Tool to update various tools'
+function vup --description 'Tool to update various tools'
 
     function __help_message
-        echo "Usage: update_various [-h] "
+        echo "Usage: vup [-h] "
         echo "         -h --help     Print this help"
     end
 
     set -l options 'h/help'
-    argparse -n update_various $options -- $argv
+    argparse -n vup $options -- $argv
     or return 1
 
     if set -lq _flag_help

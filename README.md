@@ -1,6 +1,6 @@
-# update_various
+# vup
 
-Update packages command for mimikun.
+Tools to update various packages and commands (for mimikun)
 
 ## Requirements
 
@@ -9,5 +9,5 @@ Update packages command for mimikun.
 ## Install
 
 ```shell
-fisher install mimikun/update_various
+fisher install mimikun/vup
 ```

@@ -1,5 +1,5 @@
 today = $(shell date "+%Y%m%d")
-product_name = update_various
+product_name = vup
 
 .PHONY : patch
 patch : clean diff-patch copy2win
