@@ -89,8 +89,9 @@ function vup --description 'Tool to update various tools'
     asdf install nodejs lts
     update_asdf_neovim_nightly
     asdf plugin list --urls > ~/asdf_plugin_list.txt
-    update_docker_compose
-    update_geckodriver
+    yes | update_docker_compose
+    yes | update_chromedriver
+    yes | update_geckodriver
     tldr --update
     update_completions
 
