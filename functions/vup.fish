@@ -88,12 +88,15 @@ function vup --description 'Tool to update various tools'
     asdf uninstall nodejs lts
     asdf install nodejs lts
     update_asdf_neovim_nightly
+    update_asdf_zig_master
     asdf plugin list --urls > ~/asdf_plugin_list.txt
     yes | update_docker_compose
     yes | update_chromedriver
     yes | update_geckodriver
     tldr --update
     update_completions
+    # GitHub CLI extensions update
+    gh extensions upgrade --all
 
     sleep 5
 
