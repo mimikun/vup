@@ -102,6 +102,8 @@ ohter_tools() {
   update_chromedriver
   # Upgrade geckodriver
   update_geckodriver
+  # Upgrade twitch cli
+  update_twitch_cli
   # tldr update
   tldr --update
   # GitHub CLI extensions update

@@ -93,6 +93,7 @@ function vup --description 'Tool to update various tools'
     yes | update_docker_compose
     yes | update_chromedriver
     yes | update_geckodriver
+    yes | update_twitch_cli
     tldr --update
     update_completions
     # GitHub CLI extensions update
