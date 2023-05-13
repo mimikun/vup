@@ -158,6 +158,9 @@ ohter_tools
 
 # ファイルがあれば再起動を促す
 if test -e /var/run/reboot-required; then
-  echo "\"/var/run/reboot-required\" exists. Reboot the system?(recommend)"
-  re_boot
+  # WSL かチェックする
+  if test ! -e /proc/sys/fs/binfmt_misc/WSLInterop; then
+    echo "\"/var/run/reboot-required\" exists. Reboot the system?(recommend)"
+    re_boot
+  fi
 fi

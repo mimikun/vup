@@ -102,7 +102,9 @@ function vup --description 'Tool to update various tools'
     sleep 5
 
     if test -e /var/run/reboot-required
-        echo "\"/var/run/reboot-required\" exists. Reboot the system?(recommend)"
-        re_boot
+        if not test -e /proc/sys/fs/binfmt_misc/WSLInterop
+            echo "\"/var/run/reboot-required\" exists. Reboot the system?(recommend)"
+            re_boot
+        end
     end
 end
