@@ -94,12 +94,6 @@ ohter_tools() {
   pueue add -- "bun upgrade"
   # Upgrade asdf
   pueue add -- "asdf update"
-  # Upgrade docker-compose
-  pueue add -- "update_docker_compose"
-  # Upgrade chromedriver
-  pueue add -- "update_chromedriver"
-  # Upgrade geckodriver
-  pueue add -- "update_geckodriver"
   # tldr update
   pueue add -- "tldr --update"
   # GitHub CLI extensions update
@@ -121,6 +115,14 @@ no_pueue_other_tools() {
   # Create asdf_plugin_list.txt
   asdf plugin list --urls >~/asdf_plugin_list.txt
   update_fish_completions
+  # Upgrade docker-compose
+  update_docker_compose
+  # Upgrade chromedriver
+  update_chromedriver
+  # Upgrade geckodriver
+  update_geckodriver
+  # Upgrade twitch-cli
+  update_twitch_cli
 }
 
 #=======================
