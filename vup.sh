@@ -82,8 +82,7 @@ update_asdf_tools() {
 }
 
 update_asdf_nodejs_lts() {
-  asdf uninstall nodejs lts
-  asdf install nodejs lts
+  asdf install nodejs "$(asdf nodejs resolve lts --latest-available)"
 }
 
 # other
