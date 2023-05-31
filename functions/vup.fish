@@ -85,8 +85,7 @@ function vup --description 'Tool to update various tools'
     for i in (asdf plugin list)
         asdf install $i latest
     end
-    asdf uninstall nodejs lts
-    asdf install nodejs lts
+    asdf install nodejs (asdf nodejs resolve lts --latest-available)
     update_asdf_neovim_nightly
     update_asdf_zig_master
     asdf plugin list --urls > ~/asdf_plugin_list.txt
