@@ -48,6 +48,14 @@ before_sudo() {
   fi
 }
 
+# brew upgrade commands
+brew_update_process() {
+  brew update
+  brew upgrade
+  brew upgrade --cask
+  brew cleanup
+}
+
 # Ubuntu
 ubuntu() {
   # Upgrade APT repogitory list
@@ -59,6 +67,10 @@ ubuntu() {
   sudo apt-get clean
   # Upgrade snaps
   sudo snap refresh
+  which brew >/dev/null
+  if test $? -eq 0; then
+    brew_update_process
+  fi
 }
 
 # Arch Linux
@@ -69,10 +81,7 @@ arch() {
 
 # Mac
 mac() {
-  brew update
-  brew upgrade
-  brew upgrade --cask
-  brew cleanup
+  brew_update_process
 }
 
 update_asdf_tools() {

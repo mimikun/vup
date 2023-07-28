@@ -5,6 +5,17 @@ function vup --description 'Tool to update various tools'
         echo "         -h --help     Print this help"
     end
 
+    function __brew_update_process
+        echo "Running brew update..."
+        brew update
+        echo "Running brew upgrade..."
+        brew upgrade
+        echo "Running brew cask upgrade..."
+        brew upgrade --cask
+        echo "Running brew cleanup..."
+        brew cleanup
+    end
+
     set -l options 'h/help'
     argparse -n vup $options -- $argv
     or return 1
@@ -30,6 +41,10 @@ function vup --description 'Tool to update various tools'
         sudo apt-get clean
         echo "Upgrade snaps..."
         sudo snap refresh
+        which brew > /dev/null
+        if test $status == 0
+            __brew_update_process
+        end
     end
 
     function __arch
@@ -40,14 +55,7 @@ function vup --description 'Tool to update various tools'
     end
 
     function __mac
-        echo "Running brew update..."
-        brew update
-        echo "Running brew upgrade..."
-        brew upgrade
-        echo "Running brew cask upgrade..."
-        brew upgrade --cask
-        echo "Running brew cleanup..."
-        brew cleanup
+        __brew_update_process
     end
 
     if test (os_info -t) = "OS type: Ubuntu"
