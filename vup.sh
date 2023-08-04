@@ -116,6 +116,8 @@ ohter_tools() {
   tldr --update
   # GitHub CLI extensions update
   gh extensions upgrade --all
+  # flyctl upgrade
+  flyctl version upgrade
   # Upgrade fisher
   fish -c 'fisher update'
   asdf plugin update --all

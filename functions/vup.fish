@@ -105,6 +105,8 @@ function vup --description 'Tool to update various tools'
     update_completions
     # GitHub CLI extensions update
     gh extensions upgrade --all
+    echo "Upgrade flyctl..."
+    flyctl version upgrade
 
     sleep 5
 
