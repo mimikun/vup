@@ -101,12 +101,14 @@ function vup --description 'Tool to update various tools'
     yes | update_chromedriver
     yes | update_geckodriver
     yes | update_twitch_cli
+    echo "Update tldr..."
     tldr --update
-    update_completions
-    # GitHub CLI extensions update
+    echo "Upgrade GitHub CLI extensions..."
     gh extensions upgrade --all
     echo "Upgrade flyctl..."
     flyctl version upgrade
+    echo "Update fish completions..."
+    update_completions
 
     sleep 5
 
