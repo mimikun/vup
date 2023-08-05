@@ -1,6 +1,7 @@
-function Invoke-Vup() {
-    # Update chocolatey packages
-    gsudo choco upgrade all
+﻿function Invoke-Vup() {
+    # Update scoop
+    scoop update
+    scoop update -a
 
     # Update git for windows
     git update-git-for-windows

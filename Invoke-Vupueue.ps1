@@ -1,6 +1,7 @@
 ﻿function Invoke-Vupueue() {
-    # Update chocolatey packages
-    gsudo choco upgrade all
+    # Update scoop
+    scoop update
+    scoop update -a
 
     # Update git for windows
     git update-git-for-windows
