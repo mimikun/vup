@@ -116,6 +116,8 @@ no_pueue_other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
+  pueue_update_asdf_neovim_master
+  pueue_update_asdf_neovim_stable
   pueue_update_asdf_neovim_nightly
   pueue_update_asdf_zig_master
   pueue_update_asdf_nodejs_lts

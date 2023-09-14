@@ -120,6 +120,8 @@ other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
+  update_asdf_neovim_master
+  update_asdf_neovim_stable
   update_asdf_neovim_nightly
   update_asdf_zig_master
   # Update rust tools
