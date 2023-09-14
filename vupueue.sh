@@ -126,7 +126,7 @@ no_pueue_other_tools() {
   # Create cargo_packages.txt
   generate_cargo_package_list
   # Create asdf_plugin_list.txt
-  asdf plugin list --urls >~/asdf_plugin_list.txt
+  generate_asdf_plugin_list
   update_fish_completions
   # Upgrade docker-compose
   update_docker_compose
