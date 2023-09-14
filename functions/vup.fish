@@ -39,8 +39,6 @@ function vup --description 'Tool to update various tools'
         echo "Cleaning APT caches..."
         sudo apt autoremove -y
         sudo apt-get clean
-        echo "Upgrade snaps..."
-        sudo snap refresh
         which brew > /dev/null
         if test $status == 0
             __brew_update_process

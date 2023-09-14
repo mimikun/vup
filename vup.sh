@@ -65,8 +65,6 @@ ubuntu() {
   # Cleaning APT caches
   sudo apt autoremove -y
   sudo apt-get clean
-  # Upgrade snaps
-  sudo snap refresh
   which brew >/dev/null
   if test $? -eq 0; then
     brew_update_process
