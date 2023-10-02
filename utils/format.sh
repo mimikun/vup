@@ -15,4 +15,5 @@ cd utils || exit
 run_shfmt format.sh
 run_shfmt install.sh
 run_shfmt lint.sh
+run_shfmt clean.sh
 cd "$current_dir" || exit

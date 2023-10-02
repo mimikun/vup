@@ -9,3 +9,4 @@ run_lint vupueue.sh
 run_lint utils/format.sh
 run_lint utils/install.sh
 run_lint utils/lint.sh
+run_lint utils/clean.sh

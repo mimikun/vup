@@ -1,12 +1,25 @@
 today = $(shell date "+%Y%m%d")
 product_name = vup
+gpg_pub_key = CCAA9E0638DF9088BB624BC37C0F8AD3FB3938FC
 
 .PHONY : patch
-patch : clean diff-patch patch-copy2win
+patch : clean diff-patch copy2win-patch
+
+.PHONY : gpg-patch
+gpg-patch : clean diff-patch-gpg copy2win-patch-gpg
+
+.PHONY : diff-patch-raw
+diff-patch-raw :
+	bash utils/create-patch.sh
+
+.PHONY : diff-patch-gpg
+diff-patch-gpg :
+	echo "THIS IS WIP"
+	#bash utils/create-patch.sh --use-gpg
+	#git diff origin/master | gpg --encrypt --recipient $(gpg_pub_key) > $(product_name).$(today).patch.gpg
 
 .PHONY : diff-patch
-diff-patch :
-	git diff origin/master > $(product_name).$(today).patch
+diff-patch : diff-patch-raw
 
 .PHONY : patch-branch
 patch-branch :
@@ -17,37 +30,57 @@ switch-master :
 	git switch master
 
 .PHONY : delete-branch
-delete-branch : switch-master
+delete-branch : clean switch-master
 	git branch --list "patch*" | xargs -n 1 git branch -D
-
-.PHONY : patch-copy2win
-patch-copy2win :
-	cp *.patch $$WIN_HOME/Downloads/
-
-.PHONY : install
-install :
-	bash utils/install.sh
 
 .PHONY : clean
 clean :
-	rm -f fmt-*
-	rm -f *.patch
+	bash utils/clean.sh
 
-.PHONY : lint
-lint :
-	bash utils/lint.sh
+.PHONY : copy2win-patch-raw
+copy2win-patch-raw :
+	cp *.patch $$WIN_HOME/Downloads/
 
-.PHONY : pwsh_test
-pwsh_test :
-	@echo "Run PowerShell ScriptAnalyzer"
-	@pwsh -Command "& {Invoke-ScriptAnalyzer ./Invoke-Vup.ps1}"
+.PHONY : install
+install : clean
+	bash utils/install.sh
+
+.PHONY : copy2win-patch-gpg
+copy2win-patch-gpg :
+	cp *.patch.gpg $$WIN_HOME/Downloads/
+
+.PHONY : copy2win-patch
+copy2win-patch : copy2win-patch-raw
 
 .PHONY : test
-test : lint pwsh_test
+test : lint
 
-.PHONY : format
-format :
-	bash utils/format.sh
+.PHONY : lint
+lint : textlint typo-check pwsh-test shell-lint
+
+.PHONY : textlint
+textlint :
+	pnpm run lint
+
+.PHONY : typo-check
+typo-check :
+	typos .
+
+.PHONY : pwsh-test
+pwsh-test :
+	@echo "Run PowerShell ScriptAnalyzer"
+	@pwsh utils/pssa.ps1
+
+.PHONY : shell-lint
+shell-lint :
+	bash utils/lint.sh
 
 .PHONY : fmt
 fmt : format
+
+.PHONY : format
+format : shell-format
+
+.PHONY : shell-format
+shell-format :
+	bash utils/format.sh
