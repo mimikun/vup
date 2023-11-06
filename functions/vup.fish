@@ -101,6 +101,7 @@ function vup --description 'Tool to update various tools'
     yes | update_chromedriver
     yes | update_geckodriver
     yes | update_twitch_cli
+    yes | update_pkgx
     echo "Update tldr..."
     tldr --update
     echo "Upgrade GitHub CLI extensions..."
