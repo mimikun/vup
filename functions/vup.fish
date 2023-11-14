@@ -94,6 +94,8 @@ function vup --description 'Tool to update various tools'
     gh extensions upgrade --all
     echo "Upgrade flyctl..."
     flyctl version upgrade
+    echo "Upgrade pnpm..."
+    update_pnpm
     echo "Update fish completions..."
     update_completions
 
