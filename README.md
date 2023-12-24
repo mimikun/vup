@@ -23,13 +23,7 @@ Tools to update various packages and commands. (for mimikun)
 ### Bash
 
 ```shell
-git clone https://github.com/mimikun/vupueue.git
-cd vupueue
+git clone https://github.com/mimikun/vup.git
+cd vup
 make install
-```
-
-### Fish
-
-```shell
-fisher install mimikun/vup
 ```
