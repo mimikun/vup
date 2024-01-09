@@ -6,8 +6,6 @@ Tools to update various packages and commands. (for mimikun)
 
 - [os_info](https://github.com/stanislav-tkach/os_info)
 - [pueue](https://github.com/Nukesor/pueue)
-- [update_asdf_neovim](https://github.com/mimikun/update_asdf_neovim)
-- [update_asdf_zig_master](https://github.com/mimikun/update_asdf_zig_master)
 - [update_brew](https://github.com/mimikun/update_brew)
 - [update_cargo_packages](https://github.com/mimikun/update_cargo_packages)
 - [update_chromedriver](https://github.com/mimikun/update_chromedriver)
