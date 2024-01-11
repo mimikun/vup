@@ -58,6 +58,11 @@ copy2win-patch-raw :
 install : clean
 	bash utils/install.sh
 
+## Generate CHANGELOG
+.PHONY : changelog
+changelog :
+	bash utils/changelog.sh
+
 ## Copy GPG-encrypted patch to Windows
 .PHONY : copy2win-patch-gpg
 copy2win-patch-gpg :
