@@ -5,7 +5,6 @@ run_lint() {
 }
 
 run_lint vup.sh
-run_lint vupueue.sh
 run_lint utils/format.sh
 run_lint utils/install.sh
 run_lint utils/lint.sh

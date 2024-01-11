@@ -9,7 +9,6 @@ run_shfmt() {
 }
 
 run_shfmt vup.sh
-run_shfmt vupueue.sh
 
 cd utils || exit
 run_shfmt format.sh

@@ -15,4 +15,3 @@ run_install() {
 
 before_sudo
 run_install vup
-run_install vupueue
