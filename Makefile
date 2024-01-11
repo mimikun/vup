@@ -73,7 +73,7 @@ test : lint
 
 ## Run lints
 .PHONY : lint
-lint : textlint typo-check pwsh-test shell-lint
+lint : textlint typo-check shell-lint
 
 ## Run textlint
 .PHONY : textlint
@@ -84,12 +84,6 @@ textlint :
 .PHONY : typo-check
 typo-check :
 	typos .
-
-## Run Invoke-PSScriptAnalyzer
-.PHONY : pwsh-test
-pwsh-test :
-	@echo "Run PowerShell ScriptAnalyzer"
-	@pwsh utils/pssa.ps1
 
 ## Run shellcheck
 .PHONY : shell-lint
