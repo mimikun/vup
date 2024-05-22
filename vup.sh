@@ -172,6 +172,22 @@ no_pueue() {
   echo "flyctl version upgrade"
   flyctl version upgrade
 
+  echo "update_pnpm"
+  update_pnpm
+
+  echo "update mise tools"
+  update_mise paleovim-master
+  update_mise paleovim-latest
+  update_mise zig-master
+
+  echo "update neovim managed by bob"
+  bob use latest
+  bob update nightly
+  bob use nightly
+  bob update stable
+  bob update latest
+  bob install head
+
   echo "fisher update"
   fish -c 'fisher update'
 
@@ -180,9 +196,6 @@ no_pueue() {
 
   echo "generate_cargo_package_list"
   generate_cargo_package_list
-
-  echo "update_pnpm"
-  update_pnpm
 
   echo "update_fish_completions"
   update_fish_completions
