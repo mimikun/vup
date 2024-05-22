@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.05.22] [v1.7.0]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update no_pueue process
+- chore: bump version
+- chore: update deps
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(bob): incorrect version install
+
 ## [v2024.05.20] [v1.6.0]
 
 ### Added - 新機能について
