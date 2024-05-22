@@ -109,7 +109,9 @@ use_pueue() {
   pueue add --after "$mise_task_id" -- "update_mise zig-master --use-pueue"
 
   echo "update neovim managed by bob"
-  bob_task_id=$(pueue add -p -- "bob update nightly")
+  bob_task_id=$(pueue add -p -- "bob use latest")
+  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update nightly")
+  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob use nightly")
   bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update stable")
   bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update latest")
   pueue add --after "$bob_task_id" -- "bob install head"
