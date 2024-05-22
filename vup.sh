@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.6.0"
+readonly PRODUCT_VERSION="1.7.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
