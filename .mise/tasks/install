@@ -1,4 +1,7 @@
 #!/bin/bash
+# mise description="Run install"
+
+mise tasks run clean
 
 before_sudo() {
   if ! test "$(
@@ -15,3 +18,5 @@ run_install() {
 
 before_sudo
 run_install vup
+
+# vim:ft=bash
