@@ -1,5 +1,23 @@
 # Changelog
 
+## [v2025.01.08] [v1.9.0]
+
+### Added - 新機能について
+
+- feat: add sunbeam extension update
+
+### Changed - 既存機能の変更について
+
+- docs(CHANGELOG): chore: Happy New Year! 2025!
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.22] [v1.7.0]
 
 ### Added - 新機能について
