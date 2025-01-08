@@ -152,7 +152,7 @@ chore(aqua): improve process
 
 なし
 
-## [v2024.mm.dd]
+## [v2025.mm.dd]
 
 ### Added - 新機能について
 
