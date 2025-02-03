@@ -105,7 +105,10 @@ use_pueue() {
   pueue add -- "update_pnpm"
 
   echo "update mise tools"
-  pvim_task_id=$(pueue add -p --after "$mise_task_id" -- "update_mise paleovim-master --use-pueue")
+  pvim_task_id=$(pueue add -p --after "$mise_task_id" -- "update_mise neovim-master --use-pueue")
+  pueue add --after "$pvim_task_id" -- "update_mise neovim-stable --use-pueue"
+  pueue add --after "$pvim_task_id" -- "update_mise neovim-nightly--use-pueue"
+  pueue add --after "$pvim_task_id" -- "update_mise paleovim-master --use-pueue"
   pueue add --after "$pvim_task_id" -- "update_mise paleovim-latest --use-pueue"
   pueue add --after "$mise_task_id" -- "update_mise zig-master --use-pueue"
 
@@ -181,6 +184,9 @@ no_pueue() {
   update_pnpm
 
   echo "update mise tools"
+  update_mise neovim-master
+  update_mise neovim-stable
+  update_mise neovim-nightly
   update_mise paleovim-master
   update_mise paleovim-latest
   update_mise zig-master
